@@ -1,0 +1,135 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav color="warn" #drawer class="sidenav" fixedInViewport="true"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="!(isHandset$ | async)">
+    <mat-toolbar style="margin-top: 30px;">
+      <img class="center" src="../../assets/ghanatechlab.png" height="120" width="140"/></mat-toolbar>
+    <h4 style="text-align: center; margin-top: 10px;">Ghana Tech Lab</h4>
+    <mat-nav-list style="margin-top: 40px">
+      <!--<a mat-list-item href="#" style="font-weight: bolder">Reviewed Applicants</a>-->
+      <!--<a mat-list-item href="#" style="font-weight: bolder">Manage Admin Users</a>-->
+      <!--<a mat-list-item href="#" style="font-weight: bolder">Manage Regions</a>-->
+      <!--<a mat-list-item href="#" style="font-weight: bolder">Manage Instituitions</a>-->
+      <!--<a mat-list-item href="#" style="font-weight: bolder">Manage Education Levels</a>-->
+      <!--<a mat-list-item href="#" style="font-weight: bolder">Manage National IDs</a>-->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>ADMIN PORTAL</span>
+
+      <!-- This fills the remaining space of the current row -->
+      <span class="example-fill-remaining-space"></span>
+
+      <!--<span>Right Aligned Text</span>-->
+      <span style="float: right">Welcome, <span style="font-style: italic"> {{ username }}</span>
+        <span style="margin-left: 20px;"><mat-icon (click)="logout()" style="font-size: 30px; cursor: pointer">logout</mat-icon></span>
+      </span>
+    </mat-toolbar>
+    <div style="padding: 70px">
+      <div class="mat-elevation-z8">
+        <table class="table">
+          <tbody>
+
+          <tr>
+            <th>First Name</th>
+            <td>{{ applicant?.FullName }}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{{ applicant?.Email }}</td>
+          </tr>
+          <tr>
+            <th>Phone</th>
+            <td>{{ applicant?.Phone }}</td>
+          </tr>
+          <tr>
+            <th>Gender</th>
+            <td>{{ applicant?.Gender }}</td>
+          </tr>
+          <tr>
+            <th>Location</th>
+            <td>{{ applicant?.Location }}</td>
+          </tr>
+          <tr>
+            <th>Region</th>
+            <td>{{ applicant?.Region }}</td>
+          </tr>
+          <tr>
+            <th>ID Type</th>
+            <td>{{ applicant?.IDType }}</td>
+          </tr>
+          <tr>
+            <th>ID Number</th>
+            <td>{{ applicant?.IDNumber }}</td>
+          </tr>
+          <tr>
+            <th>Instituition</th>
+            <td>{{ applicant?.Instituition }}</td>
+          </tr>
+          <tr>
+            <th>Education Level</th>
+            <td>{{ applicant?.EducationLevel }}</td>
+          </tr>
+          <tr>
+            <th>Course Studied</th>
+            <td>{{ applicant?.CourseStudied }}</td>
+          </tr>
+          <tr>
+            <th>Has Programming Knowledge?</th>
+            <td>{{ applicant?.ProgrammingKnowledge }}</td>
+          </tr>
+          <tr>
+            <th>Programming Languages</th>
+            <td>{{ applicant?.ProgrammingLanguages || 'N/A' }}</td>
+          </tr>
+          <tr>
+            <th>Programming Skill Rating (1 - 10)</th>
+            <td>{{ applicant?.ProgrammingLevel }}</td>
+          </tr>
+          <tr>
+            <th>Is Employed?</th>
+            <td>{{ applicant?.Employed }}</td>
+          </tr>
+          <tr>
+            <th>Role at Employed Company</th>
+            <td>{{ applicant?.CurrenRoleIfEmployed || 'N/A' }}</td>
+          </tr>
+          <tr>
+            <th>Motivation For Applying</th>
+            <td>{{ applicant?.Motivation }}</td>
+          </tr>
+          <tr>
+            <th>Currently Enrolled In Any Ghana Tech Lab Program?</th>
+            <td>{{ applicant?.CurrentEnrolledInAnyProgram }}</td>
+          </tr>
+          <tr>
+            <th>Can Confirm Full Participation For 1 Month?</th>
+            <td>{{ applicant?.FullParticipationForOneMonth }}</td>
+          </tr>
+          <tr>
+            <th>Is Ready To Commit to Incubation Program?</th>
+            <td>{{ applicant?.ReadyToCommitToIncubationProgram }}</td>
+          </tr>
+          <tr>
+            <th>Available For Internship Opportunity?</th>
+            <td>{{ applicant?.ConsiderForInternship }}</td>
+          </tr>
+          <tr>
+            <th>Heard About This Program Through?</th>
+            <td>{{ applicant?.HeardAboutUsThrough }}</td>
+          </tr>
+          <tr style="margin-bottom: 25px">
+            <th>
+              <!--<button  mat-raised-button (click)="MarkReview(applicant._id)" color="warn">Mark As Reviewed</button>-->
+              <button style="margin-left: 2%" mat-raised-button (click)="GoBack()" color="primary">Go Back</button>
+            </th>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

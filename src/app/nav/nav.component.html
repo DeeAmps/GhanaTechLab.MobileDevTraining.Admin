@@ -1,0 +1,63 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav color="warn" #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar style="margin-top: 30px;">
+      <img class="center" src="../../assets/ghanatechlab.png" height="120" width="140"/></mat-toolbar>
+      <h4 style="text-align: center; margin-top: 10px;">Ghana Tech Lab</h4>
+    <mat-nav-list style="margin-top: 40px">
+      <!--<a mat-list-item href="#" style="font-weight: bolder">Reviewed Applicants</a>-->
+      <!--<a mat-list-item href="#" style="font-weight: bolder">Manage Admin Users</a>-->
+      <!--<a mat-list-item href="#" style="font-weight: bolder">Manage Regions</a>-->
+      <!--<a mat-list-item href="#" style="font-weight: bolder">Manage Instituitions</a>-->
+      <!--<a mat-list-item href="#" style="font-weight: bolder">Manage Education Levels</a>-->
+      <!--<a mat-list-item href="#" style="font-weight: bolder">Manage National IDs</a>-->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>ADMIN PORTAL</span>
+
+      <!-- This fills the remaining space of the current row -->
+      <span class="example-fill-remaining-space"></span>
+
+      <!--<span>Right Aligned Text</span>-->
+      <span style="float: right">Welcome, <span style="font-style: italic"> {{ username }}</span>
+        <span style="margin-left: 20px;"><mat-icon (click)="logout()" style="font-size: 30px; cursor: pointer">logout</mat-icon></span>
+      </span>
+    </mat-toolbar>
+    <div style="padding: 70px">
+      <h2 class="text-center">National Mobile Development Training Applicants</h2>
+      <br>
+      <div class="mat-elevation-z8">
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Gender</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let el of applications">
+            <td>{{ el.FullName }}</td>
+            <td>{{ el.Email }}</td>
+            <td>{{ el.Phone }}</td>
+            <td>{{ el.Gender }}</td>
+            <td>
+              <button style="margin-left: 25%" mat-raised-button (click)="GetDetails(el._id)" color="primary">View Details</button>
+            </td>
+            <td>
+              <!--<button style="margin-left: 25%" mat-raised-button (click)="GetDetails(el._id)" color="warn">Mark As Reviewed</button>-->
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
